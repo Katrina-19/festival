@@ -1,0 +1,70 @@
+*{
+    font-family: 'Comfortaa', cursive;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color: #00001e;
+}
+body{
+    background: #fdecdc;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/*HEADER*/
+header{
+    background: lightblue;
+    height: 70px;
+}
+header *{
+    color: navy;
+}
+header img{
+    height: 50px;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+}
+header ul li{
+    float: left;
+    position: relative;
+}
+header ul li a{
+    display: block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 22px;
+}
+header ul li a:hover{
+    background: #87d4e7;
+    transition: 0.5s;
+    color: navy;
+}
+header ul li ul{
+    position: absolute;
+    top:70px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 1;
+}
+header ul li:hover ul{
+    display: block;
+}
+header ul li ul li{
+    width: 100%;
+}
+header ul li ul li a{
+    padding: 10px;
+    background: white;
+    color: navy;
+}
