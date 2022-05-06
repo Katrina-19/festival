@@ -23,6 +23,16 @@ a{
     text-decoration: none;
     color: inherit;
 }
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #87d4e7;
+    line-height: 1.5rem;
+    color: white;
+    font-size: 1rem;
+}
 /*HEADER*/
 header{
     background: lightblue;
@@ -119,4 +129,131 @@ header ul li ul li a{
 }
 .carousel-caption h5 a:hover{
     text-decoration: underline;
+}
+/*MAIN*/
+.main-content h2{
+    margin:30px 0;
+}
+.main-content .post{
+    margin-bottom: 30px;
+}
+.main-content .post_text{
+    background: #ffd2b0;
+    padding: 8px;
+    border-radius: 3px;
+}
+.main-content .post_text h3{
+    margin: 14px 0;
+}
+.main-content .post_text h3 a:hover{
+    text-decoration: underline;
+    color: navy;
+}
+.main-content .post_text i{
+    margin: 0px 14px 14px 0;
+}
+/*Sidebar*/
+.search{
+    margin-top:99px;
+}
+.sidebar .section{
+   background: #ffd2b0;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+.sidebar .topics ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border-top: 1px solid #00001e;
+}
+.sidebar .topics ul li a{
+    display: block;
+    padding: 15px 0px 15px 0px;
+    border-bottom: 1px solid #00001e;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+    color: navy;
+    font-size: 1.2em;
+}
+.sidebar .topics ul li a:hover{
+    podding-left: 10px;
+    transition: all 0.3s;
+    color: #ffffff;
+}
+.footer{
+    background: lightblue;
+    color: navy;
+    position: relative;
+}
+.footer .footer-section{
+    padding: 22px;
+}
+.footer h4, .footer h3{
+    color: #0000d5;
+}
+.footer .about .contact span{
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+.footer .about .socials a{
+    border: 1px solid black;
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all 0.3s;
+    color: #0000d5;
+}
+.footer .about .socials a:hover{
+    border: 1px solid white;
+    color: white;
+    transition: all 0.3s;
+}
+.footer .links ul a{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    transition: all 0.3s;
+    color: navy;
+    text-decoration: none;
+}
+.footer .links ul a:hover{
+    color: white;
+    margin-left: 15px;
+    transition: all 0.3s;
+}
+.footer .contact-form .contact-input{
+    background: #ffffff;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.5rem;
+    padding: 0.9rem 1.4rem;
+    border: none;
+    width: 100%;
+}
+.footer .contact-form .contact-input:focus{
+    background: #ffffff;
+}
+.footer .contact-form .contact-btn{
+    float:right;
+    font-size: 1.1em;
+    font-family: 'Lora', serif;
+}
+.footer .footer-bottom{
+    color:navy;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    padding-top: 20px;
 }
