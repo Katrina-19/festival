@@ -284,6 +284,16 @@ header ul li ul li a{
 .registration_form input{
     height: 3.3rem;
 }
+.registration_form .form-check{
+    margin-left: 23px;
+}
+.registration_form .form-check-label{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.registration_form .form-check-input{
+    width: 3.3em;
+}
 .registration_form a{
     font-size: 1.2em;
     transition: all 0.3s;
