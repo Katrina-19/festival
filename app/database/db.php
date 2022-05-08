@@ -80,6 +80,7 @@ function insert($table, $params){
     $query =$pdo->prepare($sql);
     $query->execute($params);
     dbCheckError($query);
+    return $pdo->lastInsertId();
 }
 //обновление строки в таблице БД
 function update($table, $id, $params){

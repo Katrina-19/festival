@@ -20,7 +20,7 @@
 <?php include("app/include/header.php");?>
 <!--form-->
 <div class="container registration_form">
-    <form class="row justify-content-md-center" method="post" action="login.html">
+    <form class="row justify-content-md-center" method="post" action="login.php">
         <h2>Авторизация</h2>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>

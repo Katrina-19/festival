@@ -1,4 +1,8 @@
-<?php include("path.php");?>
+<?php
+include("path.php");
+
+include("app/controllers/users.php")
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,41 +24,45 @@
 <?php include("app/include/header.php");?>
 <!--form-->
 <div class="container registration_form">
-    <form class="row justify-content-md-center" method="post" action="registration.html">
+    <form class="row justify-content-md-center" method="post" action="/festival/registration.php">
         <h2>Регистрация</h2>
+        <div class="mb-3 col-12 col-md-4 err">
+            <p><?=$errMsg?></p>
+        </div>
+        <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput1" class="form-label">Ваше имя</label>
-            <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Введите ваше имя...">
+            <input type="text" class="form-control" name="username" value="<?=$username?>" id="formGroupExampleInput1" placeholder="Введите ваше имя...">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput2" class="form-label">Ваша национальность</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Введите вашу национальность...">
+            <input type="text" class="form-control" name="nationality" value="<?=$nationality?>" id="formGroupExampleInput2" placeholder="Введите вашу национальность...">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 ol-12 col-md-4 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" name="participant" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Участник</label>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" value="<?=$email?>" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword2" class="form-label">Подтвердите пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword2">
+            <input type="password" class="form-control" name="repeated" id="exampleInputPassword2">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
-        <button type="submit" class="btn btn-primary">Отправить</button>
+        <button type="submit" class="btn btn-primary" name="btn-reg">Отправить</button>
             <a href="login.php">Войти</a>
         </div>
     </form>
