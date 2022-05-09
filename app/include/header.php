@@ -16,11 +16,28 @@
                     <li><a href="#">Программа</a></li>
 
                     <li>
-                        <a href="#"><i class="fa fa-user"></i>Кабинет</a>
-                        <ul>
-                            <li><a href="#">Админ панель</a></li>
-                            <li><a href="#">Выход</a></li>
-                        </ul>
+                        <?php if(isset($_SESSION['id'])):?>
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <?php echo $_SESSION['username'];?>
+                            </a>
+                            <ul>
+                                <?php if($_SESSION['admin']):?>
+                                <li><a href="#">Админ панель</a></li>
+                                <?php endif;?>
+                                <li><a href="<?php echo BASE_URL."logout.php";?>">Выход</a></li>
+                            </ul>
+                        <?php else:?>
+
+                            <a href="<?php echo BASE_URL."login.php";?>">
+                                <i class="fa fa-user"></i>
+                                Войти
+                            </a>
+                            <ul>
+                                <li><a href="<?php echo BASE_URL."registration.php";?>">Регистрация</a></li>
+                            </ul>
+                        <?php endif;?>
+
                     </li>
                 </ul>
             </nav>

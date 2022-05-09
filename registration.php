@@ -32,7 +32,7 @@ include("app/controllers/users.php")
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput1" class="form-label">Ваше имя</label>
-            <input type="text" class="form-control" name="username" value="<?=$username?>" id="formGroupExampleInput1" placeholder="Введите ваше имя...">
+            <input type="text" class="form-control" name="username" value="<?= $username?>" id="formGroupExampleInput1" placeholder="Введите ваше имя...">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">

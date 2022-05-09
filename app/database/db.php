@@ -1,6 +1,12 @@
 <?php
+session_start();
 require('connect.php');
 
+function tt($value){
+    echo '<pre>';
+    print_r($value);
+    echo'</pre>';
+}
 //проверка выполнения запроса к БД
 function dbCheckError($query){
     $errInfo=$query->errorInfo();
@@ -54,7 +60,7 @@ function selectOne($table, $params =[]){
             $i++;
         }
     }
-    $sql=$sql." LIMIT 1";
+    //$sql=$sql." LIMIT 1";
     $query =$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

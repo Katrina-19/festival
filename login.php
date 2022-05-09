@@ -1,4 +1,7 @@
-<?php include("path.php");?>
+<?php include("path.php");
+include("app/controllers/users.php");
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,19 +25,23 @@
 <div class="container registration_form">
     <form class="row justify-content-md-center" method="post" action="login.php">
         <h2>Авторизация</h2>
+        <div class="mb-3 col-12 col-md-4 err">
+            <p><?=$errMsg?></p>
+        </div>
+        <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input value="<?=$email?>" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
-            <button type="submit" class="btn btn-primary">Войти</button>
+            <button type="submit" name="btn-log" class="btn btn-primary">Войти</button>
             <a href="registration.php">Зарегистрироваться</a>
         </div>
     </form>
