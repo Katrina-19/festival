@@ -1,5 +1,6 @@
-<?php session_start();
-include "../../path.php"?>
+<?php
+include "../../path.php";
+include "../../app/controllers/topics.php";?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,20 +21,7 @@ include "../../path.php"?>
 <body>
 <?php include("../../app/include/header-admin.php");?>
 <div class="container">
-    <div class="row">
-        <div class="sidebar col-3">
-            <ul>
-                <li>
-                    <a href="">Записи</a>
-                </li>
-                <li>
-                    <a href="">Пользователи</a>
-                </li>
-                <li>
-                    <a href="">Категории</a>
-                </li>
-            </ul>
-        </div>
+    <?php include "../../app/include/sidebar-admin.php";?>
         <div class="posts col-9">
             <div class="button row">
                 <a href="created.php" class="col-3 btn btn-primary">Создать категорию</a>
@@ -46,12 +34,14 @@ include "../../path.php"?>
                 <div class="col-5">Название</div>
                 <div class="col-4">Управление</div>
             </div>
+            <?php foreach($topics as $key=> $topic): ?>
             <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Интересный факт</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
+                <div class="id col-1"><?=$key+1;?></div>
+                <div class="title col-5"><?=$topic['name'];?></div>
+                <div class="red col-2"><a href="edit.php?id=<?=$topic['id']; ?>">edit</a></div>
+                <div class="del col-2"><a href="edit.php?del-id=<?=$topic['id']; ?>">delete</a></div>
             </div>
+            <?php endforeach;?>
         </div>
     </div>
 </div>

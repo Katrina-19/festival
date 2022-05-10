@@ -1,5 +1,6 @@
-<?php session_start();
-include "../../path.php"?>
+<?php
+include "../../path.php";
+include "../../app/controllers/topics.php"?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,20 +21,7 @@ include "../../path.php"?>
 <body>
 <?php include("../../app/include/header-admin.php");?>
 <div class="container">
-    <div class="row">
-        <div class="sidebar col-3">
-            <ul>
-                <li>
-                    <a href="">Записи</a>
-                </li>
-                <li>
-                    <a href="">Пользователи</a>
-                </li>
-                <li>
-                    <a href="">Категории</a>
-                </li>
-            </ul>
-        </div>
+    <?php include "../../app/include/sidebar-admin.php";?>
         <div class="posts col-9">
             <div class="button row">
                 <a href="created.php" class="col-3 btn btn-primary">Создать категорию</a>
@@ -42,14 +30,17 @@ include "../../path.php"?>
             </div>
             <div class="row title-table">
                 <h2>Создание категории</h2>
+                <div class="mb-3 col-12 err">
+                    <p><?=$errMsg?></p>
+                </div>
             </div>
             <div class="row add-post">
                 <form action="created.php" method="post">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Название категории" aria-label="Название категории">
+                        <input type="text" name="name" value="<?=$name?>" class="form-control" placeholder="Название категории" aria-label="Название категории">
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать категорию</button>
+                        <button name="topic-create" class="btn btn-primary" type="submit">Создать категорию</button>
                     </div>
                 </form>
             </div>

@@ -22,10 +22,10 @@ function selectAll($table, $params =[]){
                 $value="'".$value."'";
             }
             if($i===0){
-                $sql=$sql . " WHERE $key => $value";
+                $sql=$sql . " WHERE $key = $value";
             }
             else{
-                $sql=$sql . " AND $key => $value";
+                $sql=$sql . " AND $key = $value";
             }
             $i++;
         }
@@ -90,14 +90,15 @@ function update($table, $id, $params){
     $str='';
     foreach ($params as $key => $value){
         if($i===0){
-            $str=$str. $key ."= '" .$value ."'";
+            $str=$str. $key ." = '" .$value ."'";
         }else{
             $str=$str.", ". $key ." = '" .$value ."'";
         }
         $i++;
     }
 
-    $sql = "UPDATE $table SET $str WHERE id=$id";
+    $sql = "UPDATE $table SET $str WHERE id = $id";
+    var_dump($sql);
     $query =$pdo->prepare($sql);
     $query->execute($params);
     dbCheckError($query);

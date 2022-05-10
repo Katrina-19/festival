@@ -1,5 +1,6 @@
-<?php session_start();
-        include "../../path.php"?>
+<?php
+include "../../path.php";
+include "../../app/controllers/topics.php"?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,28 +22,31 @@
 <?php include("../../app/include/header-admin.php");?>
 <div class="container">
     <?php include "../../app/include/sidebar-admin.php";?>
-        <div class="posts col-9">
-            <div class="button row">
-                <a href="created.php" class="col-3 btn btn-primary">Добавить запись</a>
-                <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-primary">Упраление записями</a>
-            </div>
-            <div class="row title-table">
-                <h2>Управление записями</h2>
-                <div class="col-1">ID</div>
-                <div class="col-5">Название</div>
-                <div class="col-2">Автор</div>
-                <div class="col-4">Управление</div>
-            </div>
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Статья</div>
-                <div class="author col-2">admin</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
+    <div class="posts col-9">
+        <div class="button row">
+            <a href="created.php" class="col-3 btn btn-primary">Создать категорию</a>
+            <span class="col-1"></span>
+            <a href="index.php" class="col-3 btn btn-primary">Управление категориями</a>
+        </div>
+        <div class="row title-table">
+            <h2>Обновление категории</h2>
+            <div class="mb-3 col-12 err">
+                <p><?=$errMsg?></p>
             </div>
         </div>
+        <div class="row add-post">
+            <form action="edit.php" method="post">
+                <input type="hidden" name="id" value="<?=$id?>">
+                <div class="col">
+                    <input type="text" name="name" value="<?=$name?>" class="form-control" placeholder="Название категории" aria-label="Название категории">
+                </div>
+                <div class="col">
+                    <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 </div>
 
 <?php include("../../app/include/footer.php");?>
