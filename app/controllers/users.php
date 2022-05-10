@@ -1,5 +1,5 @@
 <?php
-include("app/database/db.php");
+require("app/database/db.php");
 
 $errMsg='';
 
@@ -39,14 +39,12 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-reg'])){
             ];
             $id=insert('users', $post);
             $user=selectOne('users',['id'=>$id]);
-            var_dump($user);
-            exit();
             $_SESSION['id']=$user['id'];
             $_SESSION['username']=$user['username'];
             $_SESSION['admin']=$user['admin'];
             $_SESSION['email']=$user['email'];
             if($_SESSION['admin']){
-                header('location: '.BASE_URL.admin/posts/index.php);
+                header('location: '.BASE_URL."admin/posts/index.php");
             }else{
                 header('location: '.BASE_URL);
             }
@@ -67,9 +65,9 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
         $errMsg= "Не все поля заполнены!";
     }else {
         $existence = selectOne('users', ['email' => $email]);
-        if($existence &&password_verify($password, $existence['password'])){
+        if($existence && password_verify($password, $existence['password'])){
             $_SESSION['id']=$existence['id'];
-            //$_SESSION['username']=$existence['username'];
+            $_SESSION['username']=$existence['username'];
             $_SESSION['admin']=$existence['admin'];
             if($_SESSION['admin']){
                 header('location: '.BASE_URL."admin/posts/index.php");
@@ -80,6 +78,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
         }else{
             $errMsg= "Почта или пароль введены неверно!";
         }
+        echo("вы вошли");
     }
 }else{
     $email='';

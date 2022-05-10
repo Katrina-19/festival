@@ -12,11 +12,12 @@
             <nav class="col-8">
                 <ul>
                     <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                <?php echo $_SESSION['username'];?>
-                            </a>
-                                <li><a href="<?php echo BASE_URL."logout.php";?>">Выход</a></li>
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <?php echo $_SESSION['username'];?>
+                        </a>
+                    <li>
+                        <a href="<?php echo BASE_URL . "logout.php";?>">Выход</a></li>
                     </li>
                 </ul>
             </nav>

@@ -1,12 +1,7 @@
 <?php
-session_start();
 require('connect.php');
 
-function tt($value){
-    echo '<pre>';
-    print_r($value);
-    echo'</pre>';
-}
+session_start();
 //проверка выполнения запроса к БД
 function dbCheckError($query){
     $errInfo=$query->errorInfo();
@@ -27,10 +22,10 @@ function selectAll($table, $params =[]){
                 $value="'".$value."'";
             }
             if($i===0){
-                $sql=$sql . "WHERE $key => $value";
+                $sql=$sql . " WHERE $key => $value";
             }
             else{
-                $sql=$sql . "AND $key => $value";
+                $sql=$sql . " AND $key => $value";
             }
             $i++;
         }
@@ -50,18 +45,19 @@ function selectOne($table, $params =[]){
         foreach ($params as $key => $value){
             if(!is_numeric($value)){
                 $value="'".$value."'";
+                //$key="'".$key."'";
             }
             if($i===0){
-                $sql=$sql . "WHERE $key => $value";
+                $sql=$sql . " WHERE $key = $value";
             }
             else{
-                $sql=$sql . "AND $key => $value";
+                $sql=$sql . " AND $key = $value";
             }
             $i++;
         }
     }
     //$sql=$sql." LIMIT 1";
-    $query =$pdo->prepare($sql);
+    $query=$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
     return $query->fetch();
@@ -77,8 +73,8 @@ function insert($table, $params){
             $col=$col . "$key";
             $mask=$mask ."'" ."$value" ."'";
         }else{
-        $col=$col . ", $key";
-        $mask=$mask .", '" ."$value" ."'";
+            $col=$col . ", $key";
+            $mask=$mask .", '" ."$value" ."'";
         }
         $i++;
     }
@@ -86,7 +82,6 @@ function insert($table, $params){
     $query =$pdo->prepare($sql);
     $query->execute($params);
     dbCheckError($query);
-    return $pdo->lastInsertId();
 }
 //обновление строки в таблице БД
 function update($table, $id, $params){

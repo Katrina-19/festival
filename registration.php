@@ -1,7 +1,7 @@
 <?php
-include("path.php");
+require("path.php");
 
-include("app/controllers/users.php")
+require("app/controllers/users.php")
 ?>
 <!doctype html>
 <html lang="en">
