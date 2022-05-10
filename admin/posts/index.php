@@ -1,5 +1,8 @@
-<?php session_start();
-        include "../../path.php"?>
+<?php
+        include "../../path.php";
+include "../../app/controllers/posts.php";
+//include "../../app/controllers/topics.php"?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,13 +37,20 @@
                 <div class="col-2">Автор</div>
                 <div class="col-4">Управление</div>
             </div>
+            <?php foreach($postsAdm as $key=> $post): ?>
             <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Статья</div>
-                <div class="author col-2">admin</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
+                <div class="id col-1"><?=$key+1?></div>
+                <div class="title col-5"><?=$post['title'];?></div>
+                <div class="author col-2"><?=$post['username'].", ".$post['nationality'];?></div>
+                <div class="red col-1"><a href="edit.php?id=<?=$post['id']?>">edit</a></div>
+                <div class="del col-1"><a href="edit.php?del_id=<?=$post['id']?>">delete</a></div>
+                <?php if($post['status']):?>
+                <div class="stat col-2"><a href="edit.php?publish=0&pub_id=<?=$post['id']?>">unpublish</a></div>
+                <?php else:?>
+                <div class="stat col-2"><a href="edit.php?publish=1&pub_id=<?=$post['id']?>">publish</a></div>
+                <?php endif;?>
             </div>
+            <?php endforeach;?>
         </div>
     </div>
 </div>

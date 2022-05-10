@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+include "../../app/controllers/users.php";
 include "../../path.php"?>
 <!doctype html>
 <html lang="en">
@@ -31,6 +32,9 @@ include "../../path.php"?>
                 <h2>Добавление пользователя</h2>
             </div>
             <div class="row add-post">
+                <div class="md-12 col-12 col-md-12 err">
+                    <?php include "../../app/helps/errorInfo.php";?>
+                </div>
                 <form action="created.php" method="post">
                     <div class="col">
                         <label for="formGroupExampleInput1" class="form-label">Ваше имя</label>
@@ -40,14 +44,14 @@ include "../../path.php"?>
                         <label for="formGroupExampleInput2" class="form-label">Ваша национальность</label>
                         <input type="text" class="form-control" name="nationality" value="<?=$nationality?>" id="formGroupExampleInput2" placeholder="Введите вашу национальность...">
                     </div>
-                    <div class="col">
-                        <input type="checkbox" class="form-check-input" name="participant" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Участник</label>
-                    </div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>User</option>
-                        <option value="1">Admin</option>
-                    </select>
+                    <input name="participant" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Участник
+                    </label>
+                    <input name="admin" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Админ
+                    </label>
                     <div class="col">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" name="email" value="<?=$email?>" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -62,7 +66,7 @@ include "../../path.php"?>
                     </div>
                     <div class="col">
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать</button>
+                        <button name="create-user" class="btn btn-primary" type="submit">Создать</button>
                     </div>
                 </form>
             </div>

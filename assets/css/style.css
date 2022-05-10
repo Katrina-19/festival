@@ -157,7 +157,7 @@ header ul li ul li a{
     margin-top:99px;
 }
 .sidebar .section{
-   background: #ffd2b0;
+    background: #ffd2b0;
     padding: 20px;
     border-radius: 3px;
     margin-bottom: 30px;
@@ -179,7 +179,7 @@ header ul li ul li a{
     font-size: 1.2em;
 }
 .sidebar .topics ul li a:hover{
-    podding-left: 10px;
+    padding-left: 10px;
     transition: all 0.3s;
     color: #ffffff;
 }

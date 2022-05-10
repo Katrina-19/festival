@@ -207,3 +207,13 @@ header ul li ul li a{
 /*.add-post form div{
     margin: 2rem 0;
 }*/
+/*error msg*/
+.add-post .err{
+    padding: 1rem 0;
+    color: red;
+    padding: 10px;
+    font-weight: bold;
+}
+.add-post .err ul{
+    list-style: none;
+}

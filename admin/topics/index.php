@@ -1,6 +1,6 @@
 <?php
 include "../../path.php";
-include "../../app/controllers/topics.php";?>
+include_once  "../../app/controllers/topics.php";?>
 <!doctype html>
 <html lang="en">
 <head>

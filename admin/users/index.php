@@ -1,5 +1,6 @@
-<?php session_start();
-include "../../path.php"?>
+<?php
+include "../../path.php";
+include "../../app/controllers/users.php";;?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,23 +29,33 @@ include "../../path.php"?>
                 <a href="index.php" class="col-3 btn btn-primary">Управление</a>
             </div>
             <div class="row title-table">
-                <h2>Управление пользователями</h2>
+                <h2>Пользователями</h2>
                 <div class="col-1">ID</div>
                 <div class="col-2">Имя пользователя</div>
                 <div class="col-3">Национальность</div>
-                <div class="col-1">Роль</div>
+                <div class="col-1">Админ</div>
                 <div class="col-2">Участие</div>
                 <div class="col-2">Управление</div>
             </div>
+            <?php foreach($users as $key=> $user): ?>
             <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="username col-2">Катрина</div>
-                <div class="nationality col-3">belarus</div>
-                <div class="admin col-1">admin</div>
-                <div class="participant col-2">yes</div>
-                <div class="red col-1"><a href="">edit</a></div>
-                <div class="del col-1"><a href="">delete</a></div>
+                <div class="id col-1"><?=$key+1;?></div>
+                <div class="username col-2"><?=$user['username'];?></div>
+                <div class="nationality col-3"><?=$user['nationality'];?></div>
+                <?php if($user['admin']==1) :?>
+                <div class="admin col-1">+</div>
+                <?php else: ?>
+                <div class="admin col-1">-</div>
+                <?php endif; ?>
+                <?php if($user['participant']==1) :?>
+                <div class="participant col-2">+</div>
+                <?php else: ?>
+                <div class="participant col-2">-</div>
+                <?php endif; ?>
+                <div class="red col-1"><a href="edit.php?edit_id=<?=$user['id']?>">edit</a></div>
+                <div class="del col-1"><a href="index.php?del_id=<?=$user['id']?>">delete</a></div>
             </div>
+            <?php endforeach;?>
         </div>
     </div>
 </div>
