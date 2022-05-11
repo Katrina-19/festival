@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="<?php echo BASE_URL?>">Главная</a></li>
                     <li><a href="<?php echo BASE_URL . 'about_us.php'?>">История</a></li>
-                    <li><a href="#">Программа</a></li>
+                    <li><a href="<?php echo BASE_URL . 'services.php'?>">Контакты</a></li>
 
                     <li>
                         <?php if(isset($_SESSION['id'])):?>
@@ -24,6 +24,8 @@
                             <ul>
                                 <?php if($_SESSION['admin']):?>
                                 <li><a href="<?php echo BASE_URL. "admin/posts/index.php";?>">Админ панель</a></li>
+                                    <?php elseif($_SESSION['participant']):?>
+                                    <li><a href="<?php echo BASE_URL. "participant/posts/index.php";?>">Управление постами</a></li>
                                 <?php endif;?>
                                 <li><a href="<?php echo BASE_URL."logout.php";?>">Выход</a></li>
                             </ul>

@@ -21,14 +21,11 @@
                 <h3>Quick Links</h3>
                 <br>
                 <ul>
-                    <a href="#">
-                        <li>Новости</li>
+                    <a href="<?php echo BASE_URL . 'about_us.php'?>">
+                        <li>История</li>
                     </a>
-                    <a href="#">
-                        <li>Анонсы</li>
-                    </a>
-                    <a href="#">
-                        <li>События</li>
+                    <a href="<?php echo BASE_URL . 'services.php'?>">
+                        <li>Контакты</li>
                     </a>
                 </ul>
             </div>

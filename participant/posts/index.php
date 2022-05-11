@@ -23,7 +23,7 @@ include "../../app/controllers/posts.php";
 <body>
 <?php include("../../app/include/header-admin.php");?>
 <div class="container">
-    <?php include "../../app/include/sidebar-admin.php";?>
+    <?php include "../../app/include/sidebar-partic.php";?>
         <div class="posts col-9">
             <div class="button row">
                 <a href="created.php" class="col-3 btn btn-primary">Добавить запись</a>
@@ -37,7 +37,7 @@ include "../../app/controllers/posts.php";
                 <div class="col-2">Автор</div>
                 <div class="col-4">Управление</div>
             </div>
-            <?php foreach($postsAdm as $key=> $post): ?>
+            <?php foreach($postsPart as $key=> $post): ?>
             <div class="row post">
                 <div class="id col-1"><?=$key+1?></div>
                 <div class="title col-5"><?=mb_substr($post['title'],0, 40, 'UTF-8').' ...';?></div>

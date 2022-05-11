@@ -13,6 +13,8 @@ $topic='';
 $topics=selectAll('topics');
 $posts=selectAll('posts');
 $postsAdm=selectAllFromPostsWithUsers('posts', 'users');
+$postsPart=selectAllFromPostsWithUser('posts', 'users',$_SESSION['id']);
+
 if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['add_post'])){
 
     if(!empty($_FILES['img']['name'])){
@@ -57,7 +59,12 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['add_post'])){
             $post=insert('posts', $post);
             $post=selectOne('posts',['id'=>$id]);
             //$errMsg= "Категория "."<strong>". $name."</strong>"." успешно создана!";
+        if($_SESSION['participant']){
+            header('location:' . 'http://localhost/festival/participant/posts/index.php');
+        }else{
             header('location:' . 'http://localhost/festival/admin/posts/index.php');
+        }
+
     }
 } else{
     $id='';
@@ -125,7 +132,11 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['edit_post'])){
         ];
         $post=update('posts',$id, $post);
         //$errMsg= "Категория "."<strong>". $name."</strong>"." успешно создана!";
-        header('location:' . BASE_URL.'admin/posts/index.php');
+        if($_SESSION['participant']){
+            header('location:' . 'http://localhost/festival/participant/posts/index.php');
+        }else{
+            header('location:' . 'http://localhost/festival/admin/posts/index.php');
+        }
     }
 } else{
     $title='';
@@ -139,7 +150,11 @@ if($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['pub_id'])) {
     $publish=$_GET['publish'];
 
     $postId=update('posts', $id, ['status'=>$publish]);
-    header('location:' . BASE_URL. 'admin/posts/index.php');
+    if($_SESSION['participant']){
+        header('location:' . 'http://localhost/festival/participant/posts/index.php');
+    }else{
+        header('location:' . 'http://localhost/festival/admin/posts/index.php');
+    }
     exit();
 }
 
@@ -147,5 +162,9 @@ if($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['pub_id'])) {
 if($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['del_id'])) {
     $id=$_GET['del_id'];
     delete('posts', $id);
-    header('location:' . 'http://localhost/festival/admin/posts/index.php');
+    if($_SESSION['participant']){
+        header('location:' . 'http://localhost/festival/participant/posts/index.php');
+    }else{
+        header('location:' . 'http://localhost/festival/admin/posts/index.php');
+    }
 }

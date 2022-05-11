@@ -1,8 +1,10 @@
-<?php include("path.php");
-include SITE_ROOT."/app/database/db.php";
-$post=selectPostFromPostsWithUsersOnIndex('posts','users',$_GET['post']);
+<?php
+        include "path.php";
+        include SITE_ROOT."/app/database/db.php";
+        if($_SERVER['REQUEST_METHOD']==='POST'&& isset($_POST['search-term'])){
+            $posts=search($_POST['search-term'],'posts','users');
+        }
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,49 +25,34 @@ $post=selectPostFromPostsWithUsersOnIndex('posts','users',$_GET['post']);
 <body>
 <?php include("app/include/header.php");?>
 
-
 <!-- block main -->
 <div class="container">
     <div class="content row">
-        <div class="main-content col-md-9 col-12">
-            <h2><?php echo $post['title'];?></h2>
-
-            <div class=" single_post row">
-                <div class="img col-12">
+        <div class="main-content col-12">
+            <h2>Результаты поиска</h2>
+            <?php foreach($posts as $key=> $post): ?>
+            <div class="post row">
+                <div class="img col-12 col-md-4">
                     <img src="<?=BASE_URL.'assets/images/posts/'.$post['img']?>" alt="<?=$post['title']?>" class="img-thumbnail">
                 </div>
-                <div class="info">
+                <div class="post_text col-12 col-md-8">
+                    <h3>
+                        <a href="<?=BASE_URL.'single.php?post='.$post['id'];?>"><?=mb_substr($post['title'],0, 120, 'UTF-8').' ...'?></a>
+                    </h3>
                     <i class="far fa-user"><?=$post['username']?></i>
                     <i class="far fa-calendar"><?=$post['created_date']?></i>
+                    <p class="preview-text">
+                        <?=mb_substr($post['content'],0, 150, 'UTF-8').' ...'?>
+                    </p>
                 </div>
+            </div>
+            <?php endforeach;?>
+        </div>
 
-                <div class="single_post_text col-12">
-                    <?=$post['content']?>
-                </div>
-            </div>
-        </div>
-        <div class="sidebar col-md-3 col-12">
-            <div class="section search">
-                <h3>Поиск</h3>
-                <form action="/" method="post">
-                    <input type="text" name="search-term" class="text-input" placeholder="Введите искомое слово...">
-                </form>
-            </div>
-            <div class="section topics">
-                <h3>Категории</h3>
-                <ul>
-                    <?php foreach($topics as $key=> $topic): ?>
-                        <li>
-                            <a href="<?=BASE_URL.'category.php?id='.$topic['id'];?>"><?=$topic['name'];?></a>
-                        </li>
-                    <?php endforeach;?>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
-
 <?php include("app/include/footer.php");?>
+
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

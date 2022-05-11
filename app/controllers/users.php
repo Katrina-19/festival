@@ -45,8 +45,11 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-reg'])){
             $_SESSION['username']=$user['username'];
             $_SESSION['admin']=$user['admin'];
             $_SESSION['email']=$user['email'];
+            $_SESSION['participant']=$user['participant'];
             if($_SESSION['admin']){
                 header('location: '.BASE_URL."admin/posts/index.php");
+            }elseif($_SESSION['participant']){
+                header('location: '.BASE_URL."participant/posts/index.php");
             }else{
                 header('location: '.BASE_URL);
             }
@@ -71,8 +74,11 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
             $_SESSION['id']=$existence['id'];
             $_SESSION['username']=$existence['username'];
             $_SESSION['admin']=$existence['admin'];
+            $_SESSION['participant']=$existence['participant'];
             if($_SESSION['admin']){
                 header('location: '.BASE_URL."admin/posts/index.php");
+            }elseif($_SESSION['participant']){
+                header('location: '.BASE_URL."participant/posts/index.php");
             }else{
                 header('location: '.BASE_URL);
             }
@@ -129,8 +135,11 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['create-user'])){
             $_SESSION['username']=$user['username'];
             $_SESSION['admin']=$user['admin'];
             $_SESSION['email']=$user['email'];
+            $_SESSION['participant']=$user['participant'];
             if($_SESSION['admin']){
                 header('location: '."http://localhost/festival/admin/posts/index.php");
+            }elseif($_SESSION['participant']){
+                header('location: '.BASE_URL."participant/posts/index.php");
             }else{
                 header('location: '."http://localhost/festival/");
             }

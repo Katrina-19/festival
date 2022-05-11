@@ -27,7 +27,7 @@ require("app/controllers/users.php")
     <form class="row justify-content-md-center" method="post" action="/festival/registration.php">
         <h2>Регистрация</h2>
         <div class="mb-3 col-12 col-md-4 err">
-            <p><?=$errMsg?></p>
+            <?php include "app/helps/errorInfo.php";?>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
