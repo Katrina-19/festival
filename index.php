@@ -50,7 +50,7 @@
             <?php endif;?>
                 <img src="<?=BASE_URL.'assets/images/posts/'.$post['img']?>"alt="<?=$post['title']?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption-changed carousel-caption d-none d-md-block">
-                    <h5><a href="<a href="<?=BASE_URL.'single.php?post='.$post['id'];?>"><?=mb_substr($post['title'],0, 120, 'UTF-8').' ...'?></a></h5>
+                    <h5><a href="<?=BASE_URL.'single.php?post='.$post['id'];?>"><?=mb_substr($post['title'],0, 120, 'UTF-8').' ...'?></a></h5>
                 </div>
             </div>
             <?php endforeach;?>
@@ -111,7 +111,7 @@
         </div>
     </div>
 </div>
-<?php include("app/include/pagination.php");?>
+
 <?php include("app/include/footer.php");?>
 
 <!-- Optional JavaScript; choose one of the two! -->

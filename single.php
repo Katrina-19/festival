@@ -1,5 +1,6 @@
 <?php include("path.php");
-include SITE_ROOT."/app/database/db.php";
+//include SITE_ROOT."/app/database/db.php";
+include_once "app/controllers/topics.php";
 $post=selectPostFromPostsWithUsersOnIndex('posts','users',$_GET['post']);
 ?>
 

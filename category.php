@@ -1,7 +1,7 @@
 <?php
         include "path.php";
         include_once "app/controllers/topics.php";
-        $postsA=selectAllFromPostsWithUsersIndex('posts', 'users');
+        $postsA=selectAllFromPostsWithUsersIndex('posts', 'topics');
         $top=selectTopFromPostsOnIndex('posts');
         $category=selectOne('topics', ['id'=>$_GET['id']]);
         $posts=selectAll('posts', ['id_topic'=>$_GET['id']]);

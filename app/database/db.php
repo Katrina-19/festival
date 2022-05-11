@@ -156,7 +156,7 @@ function selectAllFromPostsWithUser($table1, $table2,$id){
 function selectAllFromPostsWithUsersOnIndex($table1, $table2,$limit,$offset){
     global $pdo;
     $sql="
-    SELECT p.*,u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user=u.id WHERE p.status=1 LIMIT $limit OFFSET $offset";
+    SELECT p.*,u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user=u.id WHERE p.status=1 ";
     $query =$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
@@ -204,7 +204,7 @@ function countRows($table1){
 function selectAllFromPostsWithUsersIndex($table1, $table2){
     global $pdo;
     $sql="
-    SELECT p.*,u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user=u.id WHERE p.status=1";
+    SELECT p.* FROM $table1 AS p JOIN $table2 AS t ON p.id_topic=t.id WHERE p.status=1";
     $query =$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
